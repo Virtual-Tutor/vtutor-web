@@ -1,0 +1,125 @@
+<!--  -->
+<ng-template #reponseDlg>
+	<div class="modal-header">
+		<h4 class="modal-title pull-left">Thank You!</h4>
+		<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body container-fluid">
+
+	<p>Thanks for your interest, our staff of talented educators will be in touch with you shortly!</p>	
+
+	</div>
+	<!--<div class="modal-footer">
+		<button class="btn btn-success">Save</button>
+	</div>-->
+</ng-template>
+
+<div class="container-fluid">
+
+	<div class="page-headline">
+		<h2 class="page-headline-title">BECOME A vTUTOR</h2>
+	</div>
+</div>
+
+
+<div class="container-fluid become-vtutor">
+
+	<div class="row">
+		<div class="col-md-6 text-right">
+			<img src="../../img/tutor1.png" />
+
+
+		</div>
+		<div class="col-md-5 align-middle">
+
+
+			<h2>The <strong>vTutor</strong> Educator</h2>
+			<p>Our vTutor instructors are experienced certified educators who provide the highest quality of effective instruction for all students. They are well versed in the delivery of common core standards and effective instructional practices. Our instructors are compassionate, enthusiastic and caring and understand how to build a positive rapport with students and parents.</p>
+
+			<p>The vTutor educator is trained to set and create an environment of high expectations to ensure the highest quality of teaching and learning while engaging and empowering the students to reach the highest level of achievement. The enrichment opportunities provided by vTutor educators are unlimited by focusing on the individual needs of each student.</p>
+
+			<h3>"The vTutor educator is passionate about helping students succeed."</h3>
+		</div>
+	</div>
+	<div class="row">
+
+		<form class="col-md-10 col-md-offset-1 contact-us">
+			<h4>Contact us if you would like to become a <strong>vTutor</strong></h4>
+
+			<!-- column 1 -->
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Your Name:</label>
+					<input [(ngModel)]="tutor.name" name="name" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>Grade(s) You Teach</label>
+					<input [(ngModel)]="tutor.grade" name="grades" class="form-control" />
+				</div>
+
+				<!--<div class="row" *ngFor="let subject of tutor.subjects">
+					<div class="col-md-2 dropdown" dropdown>
+						<button dropdownToggle class="btn btn-primary dropdown-toggle" type="button">
+							{{gradeDisplay(subject)}}
+							<span class="caret"></span>
+						</button>
+						<ul *dropdownMenu class="dropdown-menu" role="menu">
+							<li *ngFor="let grade of allGrades"><a role="menuitem" class="dropdown-item" (click)="selectGrade(subject, grade)">{{grade.toString()}}</a></li>
+						</ul>
+					</div>
+					<div class="col-md-10 dropdown" dropdown>
+						<button dropdownToggle class="btn btn-primary dropdown-toggle" type="button">
+							{{subjectDisplay(subject)}}
+							<span class="caret"></span>
+						</button>
+						<ul *dropdownMenu class="dropdown-menu" role="menu">
+							<li *ngFor="let s of allSubjects"><a role="menuitem" class="dropdown-item" (click)="selectSubject(subject, s)">{{s.toString()}}</a></li>
+						</ul>
+					</div>
+				</div>-->
+			</div>
+
+
+
+			<!-- column 2 -->
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Your Email Address:</label>
+					<input [(ngModel)]="tutor.emailAddress" name="email" class="form-control" />
+				</div>
+
+
+				<div class="form-group">
+					<label>Subject(s) You Teach</label>
+					<input [(ngModel)]="tutor.subject" name="subjects" class="form-control" />
+				</div>
+			</div>
+			<div class="col-md-12">
+
+				<div class="form-group">
+					<label>Tell us why you would like to become a vTutor:</label>
+					<textarea [(ngModel)]="tutor.whyVTutor" name="whyVTutor" class="form-control"></textarea>
+				</div>
+
+				<!--<div class="form-group">
+			<label>Password:</label>
+			<input type="password" [(ngModel)]="password" name="Password" class="form-control" />
+		</div>
+
+		<div class="form-group">
+			<label>Confirm Password:</label>
+			<input [(ngModel)]="confirmPassword" name="ConfirmPassword" class="form-control" />
+		</div>-->
+				<div class="text-center">
+					<button (click)="submit(reponseDlg)" class="btn btn-default submit-btn text-center">Submit</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+
+
+</div>

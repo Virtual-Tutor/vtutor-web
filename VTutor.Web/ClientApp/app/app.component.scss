@@ -1,0 +1,236 @@
+/*$navbar-default-bg: #312312;
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;*/
+
+/* Import Bootstrap & Fonts */
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$fa-font-path: '~font-awesome-5-css/webfonts';
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~font-awesome-5-css/scss/fontawesome.scss";
+@import "~font-awesome-5-css/scss/fa-solid.scss";
+@import "~font-awesome-5-css/scss/fa-brands.scss";
+@import "~font-awesome-5-css/scss/fa-regular.scss";
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,900');
+
+
+/* *** Global variables and mixins can go here ***
+  ------------------------------------------------
+*/
+$accent-color: #733689;
+$main-font: 'Lato', sans-serif;
+
+// Mixins:
+@mixin transition($in) {
+  transition: $in;
+  -webkit-transition: $in;
+  -moz-transition: $in;
+  -o-transition: $in;
+  -ms-transition: $in;
+}
+
+@mixin transform($in) {
+  transform: $in;
+  -webkit-transform: $in;
+  -moz-transform: $in;
+  -o-transform: $in;
+  -ms-transform: $in;
+}
+
+@mixin animation($in) {
+  animation: $in;
+  -webkit-animation: $in;
+  -moz-animation: $in;
+  -o-animation: $in;
+  -ms-animation: $in;
+}
+
+/* *** Overall APP Styling can go here ***
+   --------------------------------------------
+   Note: This Component has ViewEncapsulation.None so the styles will bleed out
+
+*/
+.body-content {
+  margin-top: 60px;
+}
+
+.form-control {
+  @include transition(all 0.3s ease);
+  border-radius: 0;
+
+
+  &:focus {
+    -webkit-appearance: none!important;
+    outline:0px!important;
+    border-left: 2px solid $accent-color;
+  }
+}
+
+h1 {
+	color: #622b76;
+	font-weight: bold;
+	font-size: 36px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	font-family: inherit;
+	line-height: 1.1;
+}
+
+p {
+
+}
+
+
+.submit-btn {
+	color: #fff;
+	background-color: #622b76;
+	border: none !important;
+	border-radius: 0px;
+	padding: 12px 32px;
+}
+
+.submit-btn:hover {
+	background-color: #666;
+	color: #fff;
+}
+
+label {
+	background-color: rgba(255, 255, 255, 0.3) !important;
+	padding: 3px 5px;
+	border-radius: 6px;
+}
+
+label:hover {
+	background-color: rgba(255, 255, 255, 0.8) !important;
+	padding: 3px 5px;
+	border-radius: 6px;
+}
+
+/* font awesome BEGIN =========*/
+.fas{
+	padding-right: 5px;
+
+}
+
+.fab{
+	padding-right: 5px;
+}
+/* font awesome END */
+
+
+/* Nav Logo BEGIN =========*/
+
+.navbar-brand {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.navbar-brand img {
+	width: 174px;
+	height: 50px;
+	top: -60px;
+}
+/* Nav Logo END */
+
+
+/*front page carousel BEGIN =========*/
+
+/*???? Can't find location of icon ????*/
+
+.icon-prev img{
+
+}
+.carousel-control-prev-icon img{
+
+}
+
+.glyphicon-chevron-left {
+
+}
+.carousel-control {
+
+}
+.glyphicon {
+
+}
+/*front page carousel END*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+///Material Design Checkbox
+$md-checkbox-margin: 16px 0;
+$md-checkbox-checked-color: $accent-color;//rgb(51, 122, 183);
+$md-checkbox-border-color: rgba(0, 0, 0, 0.54);
+
+$md-checkbox-size: 20px;
+$md-checkbox-padding: 4px;
+
+$md-checkmark-width: 2px;
+$md-checkmark-color: #fff;
+
+.md-checkbox {
+	position: relative;
+	margin: $md-checkbox-margin;
+
+	label {
+		cursor: pointer;
+
+		&:before, &:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		&:before {
+			// box
+			width: $md-checkbox-size;
+			height: $md-checkbox-size;
+			background: #fff;
+			border: 2px solid $md-checkbox-border-color;
+			border-radius: 2px;
+			cursor: pointer;
+			transition: background .3s;
+		}
+
+		&:after {
+			// checkmark
+		}
+	}
+
+	input[type="checkbox"] {
+		outline: 0;
+		margin-right: $md-checkbox-size - 10px;
+
+		&:checked {
+			+ label:before {
+				background: $md-checkbox-checked-color;
+				border: none;
+			}
+
+			+ label:after {
+
+				$md-checkmark-size: $md-checkbox-size - 2*$md-checkbox-padding;
+
+				transform: rotate(-45deg);
+				top: ($md-checkbox-size / 2) - ($md-checkmark-size / 4) - $md-checkbox-size/10;
+				left: $md-checkbox-padding;
+				width: $md-checkmark-size;
+				height: $md-checkmark-size / 2;
+				border: $md-checkmark-width solid $md-checkmark-color;
+				border-top-style: none;
+				border-right-style: none;
+			}
+		}
+	}
+}

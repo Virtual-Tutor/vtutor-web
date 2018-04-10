@@ -1,0 +1,126 @@
+@import "../../app.component.scss";
+
+h5 {
+  //color:white;
+  padding-top:50px;
+  font-family: $main-font;
+  font-size: 30px;
+  font-weight:300;
+}
+
+h1 {
+  //color: white;
+  font-family: $main-font;
+  font-size: 45px;
+  font-weight: 900;
+}
+
+
+h2 {
+	font-size: 25px;
+}
+
+p {
+  //color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.bg-carousel {
+	min-height: 600px;
+	background-color: black;
+	//position: relative;
+	background: url('../../img/carousel1.jpg') no-repeat center center;
+	background-size: cover;
+	/*&:before {
+    content:"";
+    opacity:0.5;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    position:absolute;
+
+    background: url('../../img/DSC_2332.jpg') no-repeat center center;
+    background-size: cover;
+  }*/
+}
+
+
+.bg-carousel2 {
+	min-height: 600px;
+	background-color: black;
+	background: url('../../img/carousel2.png') no-repeat center center;
+	background-size: cover;
+}
+
+.bg-carousel3 {
+	min-height: 600px;
+	background-color: black;
+	background: url('../../img/carousel3.png') no-repeat center center;
+	background-size: cover;
+}
+
+
+
+
+.bg-counter {
+  background-image:url('../../img/stupidCounterBG.png');
+  min-height:300px;
+}
+
+.tutsection{
+	margin-top:64px;
+	margin-bottom:80px;
+	
+
+}
+.tutsection h1{
+	font-size:36px;
+}
+.tutsection h2 {
+	font-size: 30px;
+	font-weight:bold;
+}
+.tutsection h3 {
+	font-size: 24px;
+	margin-top: 48px;
+	font-weight: bold;
+}
+
+
+.tutsection .submit-btn {
+	margin-top: 48px;
+}
+.bg-counter {
+	color: #fff;
+
+
+
+}
+
+
+.bg-counter h1 {
+	color: #fff;
+
+	margin-bottom: 0px;
+}
+
+.numbers h1{
+	border-bottom: thin solid purple;
+}
+
+.bg-counter h3 {
+	margin-top: 2px;
+}
+
+
+.bg-counter .fas {
+	margin-left: 12px;
+	margin-right: 0px;
+	font-size: 36px;
+	vertical-align: middle;
+}
+.bg-counter .bob{
+	font-size: 30px;
+}

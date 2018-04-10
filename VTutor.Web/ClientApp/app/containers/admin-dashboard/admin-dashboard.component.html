@@ -1,0 +1,31 @@
+<div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Name</th>
+				<th scope="col">Email</th>
+				<th scope="col">Grades</th>
+				<th scope="col">Subjects</th>
+				<th scope="col">Why become a vTutor</th>
+				<th scope="col">Accept</th>
+				<th scope="col">Reject</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let tutor of tutors; let i = index">
+				<th scope="row">{{i}}</th>
+				<td>{{tutor.name}}</td>
+				<td>{{tutor.email}}</td>
+				<td>[blank]</td>
+				<td>[blank]</td>
+				<td>[blank]</td>
+				<td><button class="btn btn-success" (click)="accept(tutor)">Accept</button></td>
+				<td><button class="btn btn-error" (click)="reject(tutor)">Reject</button></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+</div>

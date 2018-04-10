@@ -1,0 +1,151 @@
+<!-- select session modal -->
+<ng-template #loginDialog>
+	<div class="modal-header">
+		<h4 class="modal-title pull-left">Login</h4>
+		<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body container-fluid">
+
+		<form class="login-form col-md-8 col-md-offset-2 loginwrapper">
+			<div class="form-group">
+				<label>Email:</label>
+				<input [(ngModel)]="email" name="email" class="form-control" />
+			</div>
+
+			<div class="form-group">
+				<label>Password:</label>
+				<input [(ngModel)]="password" name="password" class="form-control" type="password" />
+			</div>
+
+
+			<div class="text-center">
+				<button (click)="login()" class="btn submit-btn btn-default">Login</button>
+			</div>
+		</form>		
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success">Save</button>
+	</div>
+
+</ng-template>
+
+<div class="container-fluid">
+
+	<div class="page-headline">
+		<h2 class="page-headline-title">Sessions</h2>
+	</div>
+</div>
+
+
+<div class="container sessions-vtutor">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>
+				<p class="text-center">
+					How to Instructions
+				</p>
+			</h1>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+		<p>	We're glad you're here and we're ready to get you the academic help you need. Select your grade and subject to see available time slots for your personalized one-hour tutoring session. Once you've selected your session, we'll ask you to register or sign in. On the confirmation page, you'll have an opportunity to provide specific details about your needs so we can find the best tutor to help you. If you have a promo code, please be sure to enter it on the checkout page. If you need help scheduling your session, call us at 888-547-3583.</p>
+
+		</div>
+	</div>
+	<div class="row ">
+		<div class="col-sm-6 text-right"><img src="../../img/AdobeStock_53104681.jpg" /></div>
+		<div class="col-sm-6 ">
+			<div class="sessionswrapper">
+				<div class="row">
+
+
+					<div class="col-sm-6 text-center">
+						<label>Grade:</label>
+					</div>
+					<div class="col-sm-6 text-center">
+
+						<div class="dropdown" dropdown>
+							<button dropdownToggle class="btn btn-primary dropdown-toggle" type="button">
+								{{gradeDisplay()}}
+								<span class="caret"></span>
+							</button>
+							<ul *dropdownMenu class="dropdown-menu" role="menu">
+								<li *ngFor="let grade of allGrades"><a role="menuitem" class="dropdown-item" (click)="selectGrade(grade)">{{grade.toString()}}</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 text-center">
+						<label>Subject:</label>
+					</div>
+
+					<div class="col-sm-6 text-center">
+						<div class="dropdown" dropdown>
+							<button dropdownToggle class="btn btn-primary dropdown-toggle" type="button">
+								{{subjectDisplay()}}
+								<span class="caret"></span>
+							</button>
+							<ul *dropdownMenu class="dropdown-menu" role="menu">
+								<li *ngFor="let s of allSubjects"><a role="menuitem" class="dropdown-item" (click)="selectSubject(s)">{{s.toString()}}</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-center row">
+					<div class="col-xs-12 col-12 col-md-4 form-group">
+						<form [formGroup]="myForm">
+							<input class="form-control"
+								   [minDate]="minDate"
+								   [maxDate]="maxDate"
+								   #dp="bsDatepicker"
+								   bsDatepicker
+								   formControlName="date"
+								   [bsConfig]="{ dateInputFormat: 'MM-DD-YYYY' }">
+						</form>
+					</div>
+					<div class="col-xs-12 col-12 col-md-3 form-group">
+						<button class="btn btn-success" (click)="dp.toggle()">Select Date</button>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="list-group">
+						<a (click)="selectedBlock = block" class="list-group-item list-group-item-action" (click)="selectBlock(block)" *ngFor="let block of blocks">
+							{{formatTime(block.startTime)}} - {{formatTime(block.endTime)}}
+							<div *ngIf="selectedBlock == block">
+								<a *ngIf="!isLoggedIn()" (click)="openLoginDialog(loginDialog)" class="btn btn-default">Login</a><a *ngIf="!isLoggedIn()" class="btn btn-default">Register</a>
+								<div *ngIf="isLoggedIn()">
+									<label>Promo Code</label>
+									<input [(ngModel)]="promoCode" />
+									<ngx-braintree [clientTokenURL]="'api/purchase/getClientToken'"
+												   [createPurchaseURL]="'api/purchase/createPurchase?startDate=' + formatDate(block.startTime) + '&promo=' + promoCode"
+												   [showCardholderName]="true" 
+												   [chargeAmount]="50.00"
+												   (paymentStatus)="onPaymentStatus($event)">
+
+									</ngx-braintree>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<!--<div class="row">
+					<div class="col-sm-12 text-center session-submitbutton">
+						<a class="btn btn-primary submit-btn" (click)="submit(selectSession)" role="button">Submit</a>
+					</div>
+				</div>-->
+			</div>
+		</div>
+	</div>
+</div>
+

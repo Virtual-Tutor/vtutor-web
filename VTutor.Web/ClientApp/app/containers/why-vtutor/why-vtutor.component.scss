@@ -1,0 +1,40 @@
+.page-headline {
+	background: transparent url("../../img/image13.png") no-repeat scroll center center;
+	height: 300px;
+	background-size: 100%;
+	background-size: cover;
+	padding-top: 115px;
+	text-align: center;
+}
+
+.page-headline-title {
+	color: #ffffff;
+	font-weight: bold;
+
+	font-size: 42px;
+
+	-webkit-text-stroke: 1px black;
+}
+
+
+.text_wrapper {
+	color: #666666;
+	font-size: 16px;
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+
+
+.why-signaturepic {
+	background-image: url("../../img/RonnieSig2.jpg");
+	vertical-align: top;
+	width: 400px;
+	height: 142px;
+	margin-top: 32px;
+	margin-bottom: 32px;
+}
+
+.why-vtutor img {
+	max-width: 100%;
+	height: auto;
+	width: auto\9; /* ie8 */
+}

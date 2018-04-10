@@ -1,0 +1,69 @@
+﻿@model VTutor.Email.TemplateModels.Newsletter
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .link-hover:hover, .link-hover:active, .link-hover:focus {
+            opacity: 0.8;
+        }
+
+        .kn-brand {
+            font-family: 'Cinzel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #0B5830;
+            font-weight: 700;
+            font-size: 150px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .title-link { 
+            font-size:13px;
+        }
+
+        blockquote { 
+            border-left-width: 5px;
+            border-left-color: #0B5830;
+            font-size:11px;
+        }
+
+        .kn-brand-small {
+            color: #0B5830;
+            font-weight: 400;
+            font-size: 25px;
+            text-align: center;
+            margin: 25px;
+        }
+    </style>
+</head>
+<body style="margin: 0;">
+    <div style="text-align: center">
+        <img src="http://knowtro.com//img/Knowtro_Tagline_Grey.png" width="350px" />
+    </div>
+    <div>
+        <p>
+            Hi @Model.firstName,
+            <br />
+            Here is a sample of research that was loaded into Knowtro this week.  Click any article title below to review findings in seconds.  As always come and browse the 10,000s of topics we offer. Have a great week.
+            <br />
+            Knowtro Team
+        </p>
+
+        <div>
+            <ol>
+                @foreach (var bib in @Model.bibs)
+                {
+                <li>
+                    <a class="title-link" href="https://knowtro.com/search;q=;page=1;pageSize=20;article=@bib.articleId">@bib.title</a>
+                    <blockquote>@bib.reference</blockquote>
+                    <br />
+                </li>
+                }
+            </ol>
+        </div>
+
+        <p>Not interested in recieving future emails from us? Click here to <a href="https://www.knowtro.com/email-unsubscribe;id=@Model.userId">Unsubscribe</a></p>
+
+    </div>
+</body>
+</html>

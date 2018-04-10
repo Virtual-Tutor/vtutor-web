@@ -1,0 +1,60 @@
+@import "../../app.component.scss";
+
+//Navigation link animation...
+.vtutor-nav-link {
+	&:after {
+		content: " ";
+		width: 0;
+		height: 3px;
+		background-color: $accent-color;
+		position: absolute;
+		top: 100%;
+		left: 50%;
+
+		@include transition(all 0.3s ease);
+
+		
+
+	}
+
+	&:hover {
+		&:after {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+
+ul {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  .active {
+    background-color: blue;
+
+    &:after {
+
+      @extend .vtutor-nav-link:after;
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  li {
+    padding-top: 0;
+    padding-bottom: 0;
+    //This is to make room for the accent animation.
+    margin-bottom: 2px;
+  }
+}
+
+img {
+  height: 20px;
+}
+
+
+.vtutor-nav-link {
+	//text-transform: uppercase;
+
+		}

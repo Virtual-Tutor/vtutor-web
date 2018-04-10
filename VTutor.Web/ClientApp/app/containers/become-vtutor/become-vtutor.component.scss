@@ -1,0 +1,64 @@
+
+@import "../../app.component.scss";
+
+//Modal
+
+.modal-header {
+	background-color: $accent-color;
+	color: white;
+
+	span {
+		color: white;
+	}
+}
+
+//End Modal
+.become-vtutor p {
+	line-height: 200%;
+}
+
+
+.contact-us {
+	background-color: lighten(#666666, 50%);
+	padding: 32px auto;
+	margin-bottom: 32px;
+	border-radius: 6px;
+	box-shadow: 0px 0px 5px #8F8F8F;
+}
+
+
+.page-headline {
+	background: transparent url("../../img/image9.png") no-repeat scroll center center;
+	height: 300px;
+	background-size: 100%;
+	background-size: cover;
+	padding-top: 115px;
+	text-align: center;
+}
+.page-headline-title {
+	color: #ffffff;
+	font-weight: bold;
+
+	font-size: 42px;
+
+	-webkit-text-stroke: 1px black;
+}
+
+
+textarea:focus {
+	border: 1px solid none !important;
+}
+.form-group {
+	border: 1px solid none !important;
+}
+.form-group:focus {
+	border: 1px solid none !important;
+}
+
+.contact-us .submit-btn{
+	margin: 32px auto;
+}
+
+.contact-us h4{
+	margin-bottom: 32px;
+}

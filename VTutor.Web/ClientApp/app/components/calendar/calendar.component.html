@@ -1,0 +1,182 @@
+<!-- Modal Template -->
+
+
+<ng-template #selectTimeBlocks>
+	<div class="modal-header">
+		<h4 class="modal-title pull-left">Tutor Schedule</h4>
+		<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body container-fluid">
+
+		<p>Which blocks are you available this day?</p>
+
+		<div class="col-md-4">
+			<div class="md-checkbox"
+				 *ngFor="let slot of getAvailableSlots(editingDate)"
+				 (click)="addOrRemoveSlot(slot)">
+				<input [checked]="slotSelected(slot)"
+					   [id]="slot.getHours()" type="checkbox">
+				<label [for]="slot.getHours()">{{formatTime(slot)}}</label>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+
+		</div>
+
+		<div class="col-md-3">
+
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success">Save</button>
+	</div>
+
+</ng-template>
+
+
+<div class="container">
+
+	<div class="calendar container-fluid">
+
+
+		<div class="row">
+			<div class="instructions col-md-10 offset-md-4">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium dignissim justo, et pretium magna mollis sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse sollicitudin justo eu purus condimentum faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse non sodales purus, eu elementum sapien. Phasellus in nisi ipsum. In hac habitasse platea dictumst. Nam porta sem ac porttitor rhoncus. Ut nunc lorem, sollicitudin in euismod in, dignissim gravida sem. Proin aliquam leo nec blandit laoreet. Mauris vestibulum justo in condimentum molestie. Sed vel ipsum viverra, vehicula massa vel, imperdiet ante.
+					<i class="fa fa-thermometer-quarter" aria-hidden="true"></i>
+				</p>
+			</div>
+
+		</div>
+
+		<div class="month row">
+
+			<a class="col-md-1 prev" (click)="prevMonth()">&#10094;</a>
+			<div class="month-title col-md-10">
+				<div>{{currentMonth}}</div>
+				<div style="font-size:18px">{{currentYear}}</div>
+			</div>
+			<a class="col-md-1 next" (click)="nextMonth()">&#10095;</a>
+		</div>
+
+		<div class="weekdays row">
+
+			<div class="day-column">
+				<div class="day-title">Monday</div>
+				<div class="disabled-day-cell" *ngIf="firstMondayIsInSecondWeek()">
+
+				</div>
+
+				<div [class.active]="day.ActiveDay"
+					 class="day-cell"
+					 *ngFor="let day of mondays(); let i = index"
+					 (click)="editDay(selectTimeBlocks, day.Date)">
+
+					{{day.DayOfMonth}}
+					<div *ngFor="let event of getEventsOnDay(day.DayOfMonth)">
+						<span class="label label-info">{{getEventText(event)}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="day-column">
+				<div class="day-title">Tuesday</div>
+				<div class="disabled-day-cell" *ngIf="firstTuesdayIsInSecondWeek()">
+
+				</div>
+				<div [class.active]="day.ActiveDay"
+					 class="day-cell"
+					 *ngFor="let day of tuesdays()"
+					 (click)="editDay(selectTimeBlocks, day.Date)">
+					{{day.DayOfMonth}}
+					<div *ngFor="let event of getEventsOnDay(day.DayOfMonth)">
+						<span class="label label-info">{{getEventText(event)}}</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="day-column">
+				<div class="day-title">Wednesday</div>
+				<div class="disabled-day-cell" *ngIf="firstWednesdayIsInSecondWeek()">
+
+				</div>
+				<div [class.active]="day.ActiveDay"
+					 class="day-cell"
+					 *ngFor="let day of wednesdays()"
+					 (click)="editDay(selectTimeBlocks, day.Date)">
+					{{day.DayOfMonth}}
+					<div *ngFor="let event of getEventsOnDay(day.DayOfMonth)">
+						<span class="label label-info">{{getEventText(event)}}</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="day-column">
+				<div class="day-title">Thursday</div>
+				<div class="disabled-day-cell" *ngIf="firstThursdayIsInSecondWeek()">
+
+				</div>
+				<div [class.active]="day.ActiveDay"
+					 class="day-cell"
+					 *ngFor="let day of thursdays()"
+					 (click)="editDay(selectTimeBlocks, day.Date)">
+					{{day.DayOfMonth}}
+					<div *ngFor="let event of getEventsOnDay(day.DayOfMonth)">
+						<span class="label label-info">{{getEventText(event)}}</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="day-column">
+				<div class="day-title">Friday</div>
+				<div class="disabled-day-cell" *ngIf="firstFridayIsInSecondWeek()">
+
+				</div>
+				<div [class.active]="day.ActiveDay"
+					 class="day-cell"
+					 *ngFor="let day of fridays()"
+					 (click)="editDay(selectTimeBlocks, day.Date)">
+					{{day.DayOfMonth}}
+					<div *ngFor="let event of getEventsOnDay(day.DayOfMonth)">
+						<span class="label label-info">{{getEventText(event)}}</span>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="day-column">
+				<div class="day-title">Saturday</div>
+				<div class="disabled-day-cell" *ngIf="firstSaturdayIsInSecondWeek()">
+
+				</div>
+				<div [class.active]="day.ActiveDay"
+					 class="day-cell"
+					 *ngFor="let day of saturdays()"
+					 (click)="editDay(selectTimeBlocks, day.Date)">
+					{{day.DayOfMonth}}
+					<div *ngFor="let event of getEventsOnDay(day.DayOfMonth)">
+						<span class="label label-info">{{getEventText(event)}}</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="day-column">
+				<div class="day-title">Sunday</div>
+				<div [class.active]="day.ActiveDay"
+					 class="day-cell"
+					 *ngFor="let day of sundays()"
+					 (click)="editDay(selectTimeBlocks, day.Date)">
+					{{day.DayOfMonth}}
+					<div *ngFor="let event of getEventsOnDay(day.DayOfMonth)">
+						<span class="label label-info">{{getEventText(event)}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+</div>
+	</div>

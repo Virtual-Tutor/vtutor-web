@@ -1,0 +1,134 @@
+@import "../../app.component.scss";
+
+//Modal
+
+.modal-header {
+	background-color:$accent-color;
+	color:white;
+	span {
+		color:white;
+	}
+}
+
+//End Modal
+
+ul {
+	list-style-type: none;
+}
+
+.calendar {
+	font-family: Verdana, sans-serif;
+
+}
+
+.calendar .prev, .next {
+	//waiting on fontawesome
+	color: #fff;
+	font-size: 64px;
+}
+
+
+.day-title {
+	padding-bottom: 7px;
+	padding-bottom: 5px;
+	background-color: #ddd;
+	text-align: center;
+}
+
+.day-column {
+	.active {
+		color: white;
+		background-color: $accent-color;
+	}
+
+	.day-cell {
+		height: 100px;
+		padding-left: 3px;
+
+		@include transition(all 0.3s ease);
+
+		&:hover {
+			//border: 1px solid $accent-color;
+			box-shadow: 1px 1px 10px 2px #888888
+		}
+	}
+
+	.disabled-day-cell {
+		height: 100px;
+		padding-left: 3px;
+		color: darkgray;
+	}
+
+	float: left;
+	width: 14.2%;
+	//border-left:1px solid $accent-color;
+	//border-right: 1px solid $accent-color;
+	&:first-child {
+		//border-left: 1px solid $accent-color;
+	}
+}
+
+.month-title {
+	color: white;
+	font-size: 18px;
+}
+
+/* Month header */
+.month {
+	padding: 70px 25px;
+	background: $accent-color;
+	text-align: center;
+
+	ul {
+		margin: 0;
+		padding: 0;
+
+		li {
+			color: white;
+			font-size: 20px;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+		}
+	}
+
+	.prev {
+	}
+
+	.next {
+	}
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+	padding: 0 10px 0 10px;
+	background-color: #eee;
+}
+
+/* Days (1-31) */
+.days {
+	padding: 10px 0;
+	background: #eee;
+	margin: 0;
+
+	li {
+		list-style-type: none;
+		display: inline-block;
+		width: 13.6%;
+		text-align: center;
+		margin-bottom: 5px;
+		font-size: 12px;
+		color: #777;
+	}
+
+	.active {
+		padding: 5px;
+		background: #1abc9c;
+		color: white !important
+	}
+}
+
+
+
+.calender .instrctutions {
+
+}

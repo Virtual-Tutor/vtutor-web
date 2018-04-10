@@ -1,0 +1,217 @@
+
+
+
+<div class="container-fluid">
+
+	<div class="page-headline">
+		<h2 class="page-headline-title">Student Registration</h2>
+	</div>
+</div>
+
+<div class="container-fluid registration">
+	<div class="row">
+
+		<form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-6 col-md-offset-3 wrapper">
+
+			<div class="form-group">
+				<!-- field is required -->
+				<div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+					 class="alert alert-danger">
+
+					<div *ngIf="firstName.errors.required">
+						First Name is required
+					</div>
+
+				</div>
+
+				<label>Student's First Name:<span class="required">*</span></label>
+
+				<input [(ngModel)]="student.firstName" name="firstName" class="form-control" #firstName="ngModel" required />
+			</div>
+
+			<div class="form-group">
+				<!-- field is required -->
+				<div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+					 class="alert alert-danger">
+					<div *ngIf="lastName.errors.required">
+						Last Name is required
+					</div>
+				</div>
+				<label>Student's Last Name:<span class="required">*</span></label>
+				<input [(ngModel)]="student.lastName" name="lastName" class="form-control" #lastName="ngModel" required />
+			</div>
+
+			<div class="form-group">
+				<!-- field is required -->
+				<div *ngIf="email.invalid && (email.dirty || email.touched)"
+					 class="alert alert-danger">
+					<div *ngIf="email.errors.pattern">
+						Must be a valid email address
+					</div>
+
+					<div *ngIf="email.errors.required">
+						Email is required
+					</div>
+				</div>
+
+				<label>Student's Email:<span class="required">*</span></label>
+				<input [(ngModel)]="student.email"
+					   pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+					   type="email"
+					   name="email"
+					   class="form-control"
+					   #email="ngModel"
+					   required />
+			</div>
+
+			<div class="form-group">
+				<label>Parent's First Name:</label>
+				<input [(ngModel)]="student.parentsFirstName" name="parentsFirstName" class="form-control" #parentsFirstName="ngModel" />
+			</div>
+
+			<div class="form-group">
+				<label>Parent's Last Name:</label>
+				<input [(ngModel)]="student.parentsLastName" name="parentsLastName" class="form-control" #parentsLastName="ngModel" />
+			</div>
+
+			<div class="form-group">
+				<!-- field should be valid -->
+				<div *ngIf="parentsEmailAddress.invalid && (parentsEmailAddress.dirty || parentsEmailAddress.touched)"
+					 class="alert alert-danger">
+					<div *ngIf="parentsEmailAddress.errors.pattern">
+						Must be a valid email address
+					</div>
+				</div>
+
+				<label>Parent's Email Address:</label>
+				<input [(ngModel)]="student.parentsEmailAddress"
+					   pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+					   name="parentsEmailAddress"
+					   class="form-control"
+					   #parentsEmailAddress="ngModel" />
+			</div>
+
+			<div class="form-group">
+				<!-- field is required -->
+				<!--<div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
+					 class="alert alert-danger">
+					<div *ngIf="phoneNumber.errors.tel">
+						Must be a valid telephone number '(xxx) xxx-xxxx'
+					</div>
+				</div>-->
+
+				<label>Phone Number:</label>
+				<input [(ngModel)]="student.phoneNumber" pattern="tel" name="phoneNumber" class="form-control" #phoneNumber="ngModel" />
+			</div>
+
+			<div class="form-group">
+				<!-- field is required -->
+				<div *ngIf="streetAddress.invalid && (streetAddress.dirty || streetAddress.touched)"
+					 class="alert alert-danger">
+					<div *ngIf="streetAddress.errors.required">
+						Street Address is required
+					</div>
+				</div>
+
+				<label>Street Address:<span class="required">*</span></label>
+				<input [(ngModel)]="student.streetAddress" name="streetAddress" class="form-control" #streetAddress="ngModel" required />
+			</div>
+
+			<div class="form-group">
+				<!-- field is required -->
+				<div *ngIf="city.invalid && (city.dirty || city.touched)"
+					 class="alert alert-danger">
+					<div *ngIf="city.errors.required">
+						City is required
+					</div>
+				</div>
+
+				<label>City:<span class="required">*</span></label>
+				<input [(ngModel)]="student.city" name="city" class="form-control" #city="ngModel" required />
+			</div>
+
+			<div class="form-group">
+				<!-- field is required -->
+				<div *ngIf="zip.invalid && (zip.dirty || zip.touched)"
+					 class="alert alert-danger">
+					<div *ngIf="zip.errors.required">
+						Zip code is required
+					</div>
+				</div>
+
+				<label>Zip:<span class="required">*</span></label>
+				<input [(ngModel)]="student.zip" name="zip" class="form-control" #zip="ngModel" required />
+			</div>
+
+			<div class="form-group">
+				<!-- field is required -->
+				<div *ngIf="state.invalid && (state.dirty || state.touched)"
+					 class="alert alert-danger">
+					<div *ngIf="state.errors.required">
+						State is required
+					</div>
+				</div>
+
+				<label>State:<span class="required">*</span></label>
+				<input [(ngModel)]="student.state" name="state" class="form-control" #state="ngModel" required />
+			</div>
+
+			<div class="form-group">
+				<!-- Password validation -->
+				<div *ngIf="passwordModel.invalid && (passwordModel.dirty || passwordModel.touched)"
+					 class="alert alert-danger">
+					<div *ngIf="passwordModel.errors.required">
+						Password is required
+					</div>
+
+					<div *ngIf="passwordModel.errors.pattern">
+						Your password must be at least 8 characters (6 unique characters) with one digit, and one uppercase.
+					</div>
+				</div>
+
+
+				<label>Password:<span class="required">*</span></label>
+				<input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" [(ngModel)]="password" #passwordModel="ngModel" name="Password" class="form-control" required />
+			</div>
+
+			<div class="form-group">
+				<div *ngIf="confirmPasswordModel.invalid && (confirmPasswordModel.dirty || confirmPasswordModel.touched)"
+					 class="alert alert-danger">
+					<div *ngIf="confirmPasswordModel.errors.required">
+						Password is required
+					</div>
+					<div *ngIf="confirmPasswordModel.errors.pattern">
+						Does not match your password.
+					</div>
+				</div>
+
+				<label>Confirm Password:<span class="required">*</span></label>
+				<input type="password" [pattern]="password" [(ngModel)]="confirmPassword" #confirmPasswordModel="ngModel" name="ConfirmPassword" class="form-control" required />
+			</div>
+
+			<div class="row parentcheck">
+				<div class="col-md-1">
+					<div class="form-check">
+						<input type="checkbox" [(ngModel)]="iAgreeCheck" name="agreeCheck" class="form-check-input" id="agreeCheck">
+						<label class="form-check-label" for="agreeCheck"></label>
+					</div>
+
+				</div>
+				<div class="col-md-11 parent-text">
+					I represent that I am over 18 or the parent/guardian of the minor and that I have the full legal capacity to grant permission for him/her to participate in the tutoring session. I give consent to vTutor use my child’s name, photographs, digital images, and our video/audio recordings for use in news releases and/or other educational materials without compensation to me. All negatives, prints, and digital reproductions shall be the property of vTutor and vTutor may use, edit or reproduce such photographs and videos or share them with others for any purposes related to vTutor.
+
+				</div>
+			</div>
+			<div class="text-center">
+				<button type="submit" [disabled]="!registerForm.form.valid || !iAgreeCheck" class="btn btn-default submit-btn text-center">Submit</button>
+			</div>
+
+
+
+
+
+
+		</form>
+
+	</div>
+</div>

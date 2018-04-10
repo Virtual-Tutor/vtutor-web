@@ -1,0 +1,178 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp2.0</TargetFramework>
+		<MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+		<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+		<TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Braintree" Version="3.12.0" />
+		<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.1" />
+		<PackageReference Include="microsoft.aspnetcore.razor" Version="2.0.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+		<PackageReference Include="PayPal" Version="1.9.1" />
+		<PackageReference Include="RazorLight" Version="2.0.0-beta1" />
+		<PackageReference Include="Sendgrid" Version="9.9.0" />
+		<PackageReference Include="Swashbuckle" Version="5.6.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="1.1.0" />
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+		<Content Remove="ClientApp\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="ClientApp\app\components\calendar\calendar.component.ts" />
+		<None Remove="ClientApp\app\components\footer\footer.component.ts" />
+		<None Remove="ClientApp\app\containers\admin-dashboard\admin-dashboard.component.ts" />
+		<None Remove="ClientApp\app\containers\dashboard\dashboard.component.ts" />
+		<None Remove="ClientApp\app\containers\privacy-policy\privacy-policy.component.ts" />
+		<None Remove="ClientApp\app\containers\refer-a-friend\refer-a-friend.component.ts" />
+		<None Remove="ClientApp\app\containers\sessions\sessions.component.ts" />
+		<None Remove="ClientApp\app\containers\student-dashboard\student-dashboard.component.ts" />
+		<None Remove="ClientApp\app\containers\student-profile\student-profile.component.ts" />
+		<None Remove="ClientApp\app\containers\student-register\student-register.component.ts" />
+		<None Remove="ClientApp\app\containers\terms-and-conditions\terms-and-conditions.component.ts" />
+		<None Remove="ClientApp\app\containers\tutor-profile\tutor-profile.component.ts" />
+		<None Remove="ClientApp\app\containers\tutor-register\tutor-register.component.ts" />
+		<None Remove="ClientApp\app\containers\why-vtutor\why-vtutor.component.ts" />
+		<None Remove="ClientApp\app\models\Event.ts" />
+		<None Remove="ClientApp\app\models\Student.ts" />
+		<None Remove="ClientApp\app\models\Tutor.ts" />
+		<None Remove="ClientApp\app\models\User.ts" />
+		<None Remove="ClientApp\app\shared\admin.service.ts" />
+		<None Remove="ClientApp\app\shared\link.service.ts" />
+		<None Remove="ClientApp\app\shared\login.service.ts" />
+		<None Remove="ClientApp\app\shared\students.service.ts" />
+		<None Remove="ClientApp\app\shared\subjects.service.ts" />
+		<None Remove="ClientApp\app\shared\tutors.service.ts" />
+		<None Remove="ClientApp\app\shared\user.service.ts" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="ClientApp\app\img\logo.png" />
+		<Content Include="ClientApp\tsconfig.app.json" />
+		<Content Include="ClientApp\tsconfig.spec.json" />
+		<Content Include="EmailTemplates\tutor-contact.html">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<TypeScriptCompile Include="ClientApp\app\components\calendar\calendar.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\components\footer\footer.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\admin-dashboard\admin-dashboard.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\dashboard\dashboard.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\privacy-policy\privacy-policy.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\refer-a-friend\refer-a-friend.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\sessions\sessions.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\student-dashboard\student-dashboard.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\student-profile\student-profile.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\student-register\student-register.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\terms-and-conditions\terms-and-conditions.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\tutor-profile\tutor-profile.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\tutor-register\tutor-register.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\containers\why-vtutor\why-vtutor.component.ts" />
+		<TypeScriptCompile Include="ClientApp\app\models\Event.ts" />
+		<TypeScriptCompile Include="ClientApp\app\models\Student.ts" />
+		<TypeScriptCompile Include="ClientApp\app\models\Tutor.ts" />
+		<TypeScriptCompile Include="ClientApp\app\models\User.ts" />
+		<TypeScriptCompile Include="ClientApp\app\shared\admin.service.ts" />
+		<TypeScriptCompile Include="ClientApp\app\shared\link.service.ts" />
+		<TypeScriptCompile Include="ClientApp\app\shared\login.service.ts" />
+		<TypeScriptCompile Include="ClientApp\app\shared\students.service.ts" />
+		<TypeScriptCompile Include="ClientApp\app\shared\subjects.service.ts" />
+		<TypeScriptCompile Include="ClientApp\app\shared\tutors.service.ts" />
+		<TypeScriptCompile Include="ClientApp\app\shared\user.service.ts" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Server\Data\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="EmailTemplates\email-template.cshtml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Include="EmailTemplates\newsletter-template.cshtml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Update="EmailTemplates\email-template.cshtml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Update="EmailTemplates\newsletter-template.cshtml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="EmailTemplates\email-template.html">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="EmailTemplates\STUDENT ACCOUNT SUCCESSFULLY CREATED.html">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="EmailTemplates\STUDENT REQUESTS TUTORING SESSION.html">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="EmailTemplates\STUDENT TUTORING SESSION REMINDER .html">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="EmailTemplates\tutor-contact.html">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="EmailTemplates\vTUTOR ACCOUNT SUCCESSFULLY CREATED.html">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="EmailTemplates\vTUTOR LEAD GEN FORM RECEIVED.html">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="EmailTemplates\vTUTOR SESSION CONFIRMATION.html">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
+		<!-- Ensure Node.js is installed -->
+		<Exec Command="node --version" ContinueOnError="true">
+			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+		</Exec>
+		<Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+
+		<!-- In development, the dist files won't exist on the first run or when cloning to
+         a different machine, so rebuild them if not already present. -->
+		<Message Importance="high" Text="Performing first-run Webpack build..." />
+		<Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js" />
+		<Exec Command="node node_modules/webpack/bin/webpack.js" />
+	</Target>
+
+	<Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+		<!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+		<Exec Command="npm install" />
+		<Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod" />
+		<Exec Command="node node_modules/webpack/bin/webpack.js --env.prod" />
+
+		<!-- Include the newly-built files in the publish output -->
+		<ItemGroup>
+			<DistFiles Include="wwwroot\dist\**; ClientApp\dist\**" />
+			<ResolvedFileToPublish Include="@(DistFiles-&gt;'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+				<RelativePath>%(DistFiles.Identity)</RelativePath>
+				<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			</ResolvedFileToPublish>
+		</ItemGroup>
+	</Target>
+
+</Project>

@@ -1,0 +1,86 @@
+
+
+
+<div class="container-fluid">
+
+	<div class="page-headline">
+		<h2 class="page-headline-title">Placeholder Title</h2>
+	</div>
+</div>
+
+<div class="container-fluid registration">
+	<div class="row">
+
+		<form class="col-md-6 col-md-offset-3 wrapper">
+			<div class="row">
+				<div class="form-group">
+					<label>Student's First Name:</label>
+					<input [(ngModel)]="student.firstName" name="firstName" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>Student's Last Name:</label>
+					<input [(ngModel)]="student.lastName" name="lastName" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>Student's Email:</label>
+					<input [(ngModel)]="student.email" name="email" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>Parent's First Name:</label>
+					<input [(ngModel)]="student.parentsFirstName" name="parentsFirstName" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>Parent's Last Name:</label>
+					<input [(ngModel)]="student.parentsLastName" name="parentsLastName" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>Parent's Email Address:</label>
+					<input [(ngModel)]="student.parentsEmailAddress" name="parentsEmailAddress" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>Phone Number:</label>
+					<input [(ngModel)]="student.phoneNumber" name="phoneNumber" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>Street Address:</label>
+					<input [(ngModel)]="student.streetAddress" name="streetAddress" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>City:</label>
+					<input [(ngModel)]="student.city" name="city" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>Zip:</label>
+					<input [(ngModel)]="student.zip" name="zip" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label>State:</label>
+					<input [(ngModel)]="student.state" name="state" class="form-control" />
+				</div>
+
+
+			</div>
+			<div class="row parentcheck">
+
+				<div class="text-center">
+					<button (click)="save()" class="btn btn-default submit-btn text-center">Save</button>
+				</div>
+
+			</div>
+
+
+
+		</form>
+
+	</div>
+</div>

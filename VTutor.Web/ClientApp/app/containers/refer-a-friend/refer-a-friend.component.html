@@ -1,0 +1,56 @@
+<div class="container-fluid">
+
+	<div class="page-headline">
+		<h2 class="page-headline-title">Refer a Friend</h2>
+	</div>
+</div>
+
+
+<div class="container-fluid refer-vtutor">
+	<div class="col-md-10 col-md-offset-1 wrapper">
+		<div class="row">
+
+			<form class="col-md-10 col-md-offset-1 contact-us">
+				<h4>Love <strong>vTutor</strong>? Tell us about a friend who can also benefit from a <strong>vTutor.</strong></h4>
+
+				<!-- column 1 -->
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Your Name:</label>
+						<input [(ngModel)]="form.YourName" name="name" class="form-control" />
+					</div>
+
+					<div class="form-group">
+						<label>Your Friend's Name:</label>
+						<input [(ngModel)]="form.YourFriendsName" name="yourFriendsName" class="form-control" />
+					</div>
+
+				</div>
+
+				<!-- column 2 -->
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Your Email Address:</label>
+						<input [(ngModel)]="form.YourEmailAddress" name="email" class="form-control" />
+					</div>
+
+					<div class="form-group">
+						<label>Your Friend's Email Address:</label>
+						<input [(ngModel)]="form.YourFriendsEmailAddress" name="yourfriendsemail" class="form-control" />
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Tell us about your friend:</label>
+						<textarea [(ngModel)]="form.TellUsAboutYourFriend" name="tellusaboutyourfriend" class="form-control"></textarea>
+					</div>
+				</div>
+				<div class="text-center">
+					<button (click)="submit()" class="btn btn-default submit-btn text-center">Submit</button>
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>

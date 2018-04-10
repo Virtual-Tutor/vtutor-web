@@ -1,0 +1,183 @@
+
+
+
+<div class="container-fluid">
+
+	<div class="page-headline">
+		<h2 class="page-headline-title">Placeholder Title</h2>
+	</div>
+</div>
+
+
+
+<div class="container-fluid registration">
+	<div class="row">
+
+		<form class="col-md-6 col-md-offset-3 wrapper" #registerForm="ngForm" (ngSubmit)="onSubmit()" >
+			<div class="row">
+				<div class="form-group">
+					<!-- field is required -->
+					<div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+						 class="alert alert-danger">
+
+						<div *ngIf="firstName.errors.required">
+							First Name is required
+						</div>
+
+					</div>
+
+					<label>First Name:<span class="required">*</span></label>
+					<input [(ngModel)]="tutor.firstName" name="firstName" class="form-control" #firstName="ngModel" required />
+				</div>
+
+				<div class="form-group">
+					<!-- field is required -->
+					<div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+						 class="alert alert-danger">
+
+						<div *ngIf="lastName.errors.required">
+							Last Name is required
+						</div>
+
+					</div>
+
+					<label>Last Name:<span class="required">*</span></label>
+					<input [(ngModel)]="tutor.lastName" name="lastName" class="form-control" #lastName="ngModel" required />
+				</div>
+
+				<div class="form-group">
+					<!-- field is required -->
+					<div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
+						 class="alert alert-danger">
+
+						<div *ngIf="phoneNumber.errors.required">
+							Phone Number is required
+						</div>
+
+					</div>
+
+					<label>Phone Number:<span class="required">*</span></label>
+					<input [(ngModel)]="tutor.phoneNumber" name="phoneNumber" class="form-control" #phoneNumber="ngModel" required  />
+				</div>
+
+				<div class="form-group">
+					<!-- field is required -->
+					<div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)"
+						 class="alert alert-danger">
+
+						<div *ngIf="emailAddress.errors.required">
+							Email Address is required
+						</div>
+
+						<div *ngIf="emailAddress.errors.pattern">
+							Must be a valid email address
+						</div>
+					</div>
+
+					<label>Email Address:<span class="required">*</span></label>
+					<input [(ngModel)]="tutor.email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" name="email" class="form-control" #emailAddress="ngModel" required />
+				</div>
+
+				<div class="form-group">
+					<!-- field is required -->
+					<div *ngIf="passwordModel.invalid && (passwordModel.dirty || passwordModel.touched)"
+						 class="alert alert-danger">
+
+						<div *ngIf="passwordModel.errors.required">
+							Password is required
+						</div>
+
+						<div *ngIf="passwordModel.errors.pattern">
+							Your password must be at least 8 characters (6 unique characters) with one digit, and one uppercase.
+						</div>
+
+					</div>
+
+					<label>Password:<span class="required">*</span></label>
+					<input type="password" [(ngModel)]="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" name="Password" class="form-control" #passwordModel="ngModel" required  />
+				</div>
+
+				<div class="form-group">
+					<!-- field is required -->
+					<div *ngIf="confirmPasswordModel.invalid && (confirmPasswordModel.dirty || confirmPasswordModel.touched)"
+						 class="alert alert-danger">
+
+						<div *ngIf="confirmPasswordModel.errors.required">
+							Confirmation password is required
+						</div>
+
+						<div *ngIf="confirmPasswordModel.errors.pattern">
+							Does not match your password.
+						</div>
+					</div>
+
+					<label>Confirm Password:<span class="required">*</span></label>
+					<input type="password" [(ngModel)]="confirmPassword" [pattern]="password" name="ConfirmPassword" class="form-control" #confirmPasswordModel="ngModel" required  />
+				</div>
+
+				<!-- Subjects and Grades -->
+
+
+
+				<div class="form-group">
+					<!-- field is required -->
+					<div *ngIf="biography.invalid && (biography.dirty || biography.touched)"
+						 class="alert alert-danger">
+
+						<div *ngIf="biography.errors.required">
+							Biography is required
+						</div>
+
+					</div>
+
+					<label>Biography:<span class="required">*</span></label>
+					<input [(ngModel)]="tutor.biography" name="biography" class="form-control" #biography="ngModel" required  />
+				</div>
+
+				<div class="form-group">
+					<!-- field is required -->
+					<div *ngIf="education.invalid && (education.dirty || education.touched)"
+						 class="alert alert-danger">
+
+						<div *ngIf="education.errors.required">
+							Education is required
+						</div>
+
+					</div>
+
+					<label>Education:<span class="required">*</span></label>
+					<input [(ngModel)]="tutor.education" name="education" class="form-control" #education="ngModel" required  />
+				</div>
+
+				<div class="form-group">
+					<label>Languages:</label>
+					<!-- field is required -->
+					<div *ngIf="languages.invalid && (languages.dirty || languages.touched)"
+						 class="alert alert-danger">
+
+						<div *ngIf="languages.errors.required">
+							Languages is required
+						</div>
+
+					</div>
+
+					<input [(ngModel)]="tutor.languages" name="languages" class="form-control" #languages="ngModel" />
+				</div>
+
+				<div class="form-group">
+					<label>Hobbies:</label>
+					<input [(ngModel)]="tutor.hobbies" name="hobbies" class="form-control" #hobbies="ngModel" />
+				</div>
+
+				<!-- Upload documents and certificates... -->
+
+			</div>
+
+			<div class="text-center">
+				<button type="submit" [disabled]="!registerForm.form.valid" class="btn btn-default submit-btn text-center">Submit</button>
+			</div>
+
+		</form>
+
+	</div>
+</div>

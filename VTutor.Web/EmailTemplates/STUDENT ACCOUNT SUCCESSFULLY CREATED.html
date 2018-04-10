@@ -1,0 +1,113 @@
+﻿@model VTutor.Email.TemplateModels.StudentAccountCreated
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<style>
+		.link-hover:hover, .link-hover:active, .link-hover:focus {
+			opacity: 0.8;
+		}
+
+		.vt-brand {
+			font-family: 'Cinzel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			color: #0B5830;
+			font-weight: 700;
+			font-size: 150px;
+			text-align: center;
+			margin-top: 30px;
+		}
+
+		.vt-brand-small {
+			color: #0B5830;
+			font-weight: 400;
+			font-size: 25px;
+			text-align: center;
+			margin: 25px;
+		}
+	</style>
+</head>
+<body style="margin: 0;">
+	<div style="text-align: center">
+		<img src="https://vtutor1.com/wp-content/uploads/2017/10/logo2.png" width="616px" />
+		<!--<img src="header.jpg" width="616px" />-->
+	</div>
+	<table style="width: 100%; height: 100%;">
+		<tbody>
+			<tr>
+				<td valign="top" align="center">
+					<center>
+												<table style="background-image: url('http://www.bluegreenoffice.com/schoolGraphics.png'); width: 100%;">
+						<!--<table style="background-image: url('schoolGraphics.png'); width: 100%;">-->
+							<tr>
+								<td align="center" style="padding: 25px 0;">
+									<center>
+										<table style="width: 616px; height:121px;">
+											<tr>
+												<td align="center" style="background: #ffffff none repeat scroll 0 0; border: 3px solid #dcdad8; padding: 20px;">
+													<center>
+														<table>
+															<tr>
+																<td style="color: #666666; font-family: arial; font-size: 24px; font-weight: bold;">
+																	
+																<center>	Welcome to vTutor, @Model.Name!</center>
+																	
+																
+																</td>
+															</tr>
+															<tr>
+																<td style="text-align: left; font-size: 16px; padding-top: 15px; font-family: verdana; line-height: 27px;">
+																	<p>You have successfully created a vTutor student account.<br><br>
+																	Your <b>username</b> is @Model.EmailAddress.</p>
+																	
+																	<p>You can access your account, change your <u>password</u> and sign up for tutoring sessions anytime from here:  @Model.WhyVTutor</p>
+																	
+																	
+																	<p>We look forward to seeing you online!</p><p style="color: #622b76; font-weight: bold">The vTutor Team</p>
+																	
+																</td>
+															</tr>
+														</table>
+													</center>
+												</td>
+											</tr>
+											<tr>
+												<td align="center" style="padding-top: 25px;">
+													<center>
+													<!--	<table style="width: 100%; background: white none repeat scroll 0% 0%; padding: 20px; border: 1px solid #dcdad8;">
+															<tr>
+																<td style="font-size: 18px; font-family: Verdana; color: #505050;">Connect With Us:</td>
+															</tr>
+															<tr>
+																<td style="text-align: left; padding-top: 15px;">
+																</td>
+
+															</tr>
+														</table>-->
+														<table style="width: 100%">
+															<tr>
+																<td style="text-align: center; font-size: 13px; padding-top: 15px; font-family: verdana; line-height: 27px; font-weight: bold;">
+																	@*<a href="#" style="color: #505050;">Terms of use</a> |
+																	<a href="#" style="color: #505050;">Legal</a>*@
+																</td>
+															</tr>
+															<tr>
+																<td style="text-align: center; font-family: verdana; font-size: 13px; color: #505050; padding-top: 5px;">
+																	
+																</td>
+															</tr>
+														</table>
+													</center>
+												</td>
+											</tr>
+										</table>
+									</center>
+								</td>
+							</tr>
+						</table>
+					</center>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
